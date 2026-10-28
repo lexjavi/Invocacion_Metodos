@@ -34,6 +34,17 @@ fun sumar2(a:Int, b:Int): Int = a+b
 fun verificarPar(a: Int): Boolean = a % 2 == 0
 
 fun calcularPromedio(nota1: Double, nota2: Double, nota3: Double): Double = (nota1 + nota2 +nota3)/3
+
+//funciones de orden superior
+//operacion puede ser cualquier funcion con 2 enteros de parametro y con retorno entero
+fun operar(a:Int, b: Int, operacion: (Int, Int) -> Int):Int{
+    return operacion(a, b)
+}
+
+fun sumar3(a:Int, b:Int) : Int = a+b
+
+fun multiplicar3(a:Int, b:Int) : Int = a*b
+
 class Calculador{
     //funciones
     fun restar(a:Int, b:Int): Int = a-b
@@ -42,7 +53,15 @@ class Persona(var nombre:String, var edad:Int){
     //funciones
 
 }
+
 fun main() {
+
+    val respuesta = operar(4,5,::sumar3)
+    println(respuesta)
+
+    val respuesta2 = operar(4,5,::multiplicar3)
+    println(respuesta2)
+
     saludar()
 
     iniciar()
